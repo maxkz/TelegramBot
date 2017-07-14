@@ -13,7 +13,7 @@ config = configparser.ConfigParser(allow_no_value=True)
 config.read('etc/translate.conf')
 upd = config.get('id', 'updater')
 yandexApiKey = config.get('yandex', 'key')
-print(yandexApiKey)
+#print(yandexApiKey)
 user = config.get('db', 'user')
 password = config.get('db', 'pass')
 host = config.get('db', 'host')
@@ -180,19 +180,19 @@ def translater(bot, update):
             t = c[2]
             st = '%s-%s' % (s, t)
             tr = translate.translate(replytxt, st)
-            print(tr)
+            #print(tr)
             msg = tr['text']
-            print(msg)
+            #print(msg)
             msg = u'%s' % msg[0]
 
             bot.sendMessage(update.message.chat_id,
                             text=msg)
         else:
-            print('not c')
+            #print('not c')
             tr = translate.translate(replytxt, 'en')
-            print(tr)
+            #print(tr)
             msg = tr['text']
-            print(msg)
+            #print(msg)
             msg = u'%s' % msg[0]
 
             bot.sendMessage(update.message.chat_id, text=msg)
@@ -226,7 +226,7 @@ def mysetting(bot, update):
             c1_long = complience[c1]
             c2_long = complience[c2]
             c3_long = c1_long + '-' + c2_long
-            print(c3_long)
+            #print(c3_long)
             bot.sendMessage(update.message.chat_id,
                             text='%s' %c3_long)
         else:
